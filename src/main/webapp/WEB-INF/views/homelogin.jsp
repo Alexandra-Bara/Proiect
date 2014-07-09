@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page session="false" %>
 <html>
 <head>
@@ -8,10 +9,13 @@
 <h1>
 	Login!  
 </h1>
-<form action="demo_form.asp" method="get">
-  Username: <input type="text" name="fname"><br>
-  Password: <input type="text" name="lname"><br>
-  <input type="submit" value="Login">
-</form>
+<form:form action="http://localhost:8080/usermanagement/login" method ="POST" commandName="p">
+
+ Username: 
+	  <form:input path="username" /><br>
+ Password:
+  	<form:password  path="password" /><br>
+<input type="submit" value="Login"/>
+</form:form>
 </body>
 </html>
