@@ -4,19 +4,28 @@
 <html>
 <head>
 	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="resources/logincss.css">
 </head>
 <body>
-<h1>
-	Login!  
-</h1>
-<c:url value="/login" var = "myUrl"/>
-<form:form action="myUrl" method ="POST" commandName="p">
 
- Username: 
-	  <form:input path="username" /><br>
- Password:
-  	<form:password  path="password" /><br>
-<input type="submit" value="Login"/>
+<c:url value="/login" var = "myUrl"/>
+<div class ="wrapper">
+<form:form cssClass="log" action="${myUrl}" method ="POST" commandName="p">
+ <h1>
+	 Log in! 
+	<span></span> 
+ </h1>
+ <div>
+<label>Username: </label> 
+	  <form:input path="username"  /><br>
+ <label>Password:</label>
+  	 <form:password path="password" /><br>
+<input class="button" type="submit" value="LOGIN" />
+<c:if test="${k == 1}">
+   <p>Error.Please enter your data!</p>
+</c:if>   
+</div>
 </form:form>
+</div>
 </body>
 </html>

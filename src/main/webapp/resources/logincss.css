@@ -1,0 +1,64 @@
+div {
+	text-align:center;
+}
+
+body {
+	font-family: Helvetica;
+	background-color: #b0c4de;
+}
+
+.log {
+	 color:black;
+	 
+}
+
+form div {
+	padding: 20px;
+}
+
+label,input {
+	display:block;
+	width : 100%;
+	text-align:left;
+}
+
+form {
+	width :300px;
+	display: inline-block;
+	background: #EFFBFB;
+	border:5px solid grey;
+}
+.wrapper {
+	margin-top : 50px;
+	margin-left : auto;
+	margin-right :auto;
+	margin-bottom :auto;
+	width :600px;
+	text-align:center;
+}
+
+.button {
+	width :100px;
+	text-align:center;
+	padding:5px;
+	display: block;
+	margin: 0px auto;
+	font-size :15px;
+	font-weight : bold;
+	box-shadow: 3px 3px 6px -2px #888888;
+}
+h1 {
+	color:black;
+	font-weight :arial bold;
+}
+
+h1 span {
+	height: 2px;
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(54%,#2989d8), color-stop(100%,#ffffff));
+	width: 100%;
+	display: block;
+}
+
+
+
+

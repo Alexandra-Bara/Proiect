@@ -44,14 +44,17 @@ public class LoginController {
 		String user = p.getUsername();
 		String password = p.getPassword();
 		model.addAttribute("username", user);
-	
+	    int k = 0;
+	    
 		if(ilogicService.findUser(p) == true)
 		{
 			return "succeslogin";
 		}
 		else
 		{
-			return "failedlogin";
+			k=1;
+			model.addAttribute("k", k);
+			return "succeslogin";
 	    }
 	}
 	
