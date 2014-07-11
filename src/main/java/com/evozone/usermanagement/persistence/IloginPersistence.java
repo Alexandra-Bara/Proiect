@@ -13,5 +13,5 @@ import com.evozone.usermanagement.service.Person;
  */
 public interface IloginPersistence {
 
-	public List<Person> dataFromFile();
+	public List<Person> getUser();
 }

@@ -33,6 +33,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		Person person = new Person();
 		model.addAttribute("p", person);
 		
@@ -41,8 +42,8 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String userLogin(@ModelAttribute Person person,Model model) {
-		
-		if(ilogicService.findUser(person) == true)
+		//Person destination = ilogicService.findUser(person);
+		if(ilogicService.findUser(person) != null)
 		{
 			return "succeslogin";
 		}
