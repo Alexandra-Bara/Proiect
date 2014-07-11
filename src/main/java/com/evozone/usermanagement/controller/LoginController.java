@@ -40,22 +40,16 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String userLogin(@ModelAttribute Person p,Model model){
-		String user = p.getUsername();
-		String password = p.getPassword();
-		model.addAttribute("username", user);
-	    int k = 0;
-	    
-		if(ilogicService.findUser(p) == true)
+	public String userLogin(@ModelAttribute Person person,Model model) {
+		
+		if(ilogicService.findUser(person) == true)
 		{
 			return "succeslogin";
 		}
 		else
 		{
-			k=1;
-			model.addAttribute("k", k);
-			return "succeslogin";
-	    }
+			return "failedlogin";
+	    }  
 	}
 	
 	@RequestMapping(value = "/test/{stringUrl}", method = RequestMethod.GET)

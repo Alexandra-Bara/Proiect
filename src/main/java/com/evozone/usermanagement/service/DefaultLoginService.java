@@ -23,16 +23,15 @@ public class DefaultLoginService implements IloginService {
 	public boolean findUser(Person person) {
 		List<Person> list = new ArrayList<Person>();
 		list= iloginPersistence.dataFromFile();
+		boolean b = false;
 		
 		Iterator<Person> it = list.iterator();
 		while (it.hasNext()) {
-			Person p = (Person) it.next();
-			if(person.getUsername().equals(p.getUsername())==true && person.getPassword().equals(p.getPassword())== true){
-				return true;
-			}
-			            
+			Person p = it.next();
+			if(person.equals(p)){
+				b = true;
+			}	            
 		}
-		return false;	
-		
+		return b;	
 	}
 }

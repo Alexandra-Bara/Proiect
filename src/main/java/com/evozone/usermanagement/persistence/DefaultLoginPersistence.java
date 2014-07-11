@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
 import com.evozone.usermanagement.service.Person;
 
 /**
@@ -17,49 +19,66 @@ import com.evozone.usermanagement.service.Person;
  *
  */
 
-
+@Component
 public class DefaultLoginPersistence implements IloginPersistence {
 	
 	public DefaultLoginPersistence(){
 		
 	}
 	
-	public List<Person> dataFromFile(){
+	
+	public List<Person> dataFromFile() {
 		 List<Person> pList = new ArrayList<Person>();
 		 
 		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(
-			        "fisier.csv"));
+			        "C:\\AlexandraBara\\environment\\workspace\\UserManagement\\fisier.csv"));
+			
 			String line = null;
-	        Scanner scanner = null;
-	        int index = 0;
-	       
-	 
-	        while ((line = reader.readLine()) != null) {
-	            Person p = new Person();
-	            scanner = new Scanner(line);
-	            scanner.useDelimiter(",");
-	            while (scanner.hasNext()) {
-	                String data = scanner.next();
-	                if (index == 0)
-	                    p.setUsername(data);
-	                else if (index == 1)
-	                	p.setPassword(data);
-	                index++;
-	            }
-	            index = 0;
-	            pList.add(p);
-	        }
-	         
-	        //close reader
-	        reader.close();
-		} catch (IOException e) {
+			while((line = reader.readLine()) != null){
+				Person p = new Person();
+				String[] data = line.split(",");
+				String u = data[0];
+				String pass = data[1];
+				p.setUsername(u);
+				p.setPassword(pass);
+				pList.add(p);
+			}
+			
+			 reader.close();
+	       } catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-
         return pList;
+	}
+	
+	
+	public void main(String args[]){
+		 List<Person> pList = new ArrayList<Person>();
+		 
+			BufferedReader reader;
+			try {
+				reader = new BufferedReader(new FileReader(
+				        "fisier.csv"));
+				
+				String line = null;
+				while((line = reader.readLine()) != null){
+					Person pers = new Person();
+					String[] data = line.split(",");
+					String u = data[0];
+					String pass = data[1];
+					System.out.println(data[0]+" "+ data[1]);
+					pers.setUsername(u);
+					pers.setPassword(pass);
+					pList.add(pers);
+				}
+				
+				 reader.close();
+		       } catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 }
